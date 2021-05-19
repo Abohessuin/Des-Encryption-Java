@@ -24,7 +24,7 @@ public class Step1DES {
 		this.Key = Key;
 	}
 
-	public void GetPermutionKeys() {
+	public String[] GetPermutionKeys() {
 
 		for (int i = 0; i < newShiftedKeys.length; i++) {
 			String Kplus = "";
@@ -35,6 +35,7 @@ public class Step1DES {
 			}
 			newShiftedKeys[i] = Kplus;
 		}
+		return newShiftedKeys;
 
 	}
 
@@ -132,13 +133,13 @@ public class Step1DES {
 
 	public void PrintAllKeys() {
 		for (int i = 0; i < 17; i++) {
-			System.out.println(ShiftedKeys[i] + "\n");
+			//System.out.println(ShiftedKeys[i] + "\n");
 		}
 	}
 
 	public void PrintAllNewKeys() {
 		for (int i = 0; i < 16; i++) {
-			System.out.println(newShiftedKeys[i] + "\n");
+			//System.out.println(newShiftedKeys[i] + "\n");
 		}
 	}
 }

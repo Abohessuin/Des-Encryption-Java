@@ -10,6 +10,8 @@ public class HandlingInput {
     private String rightKey;
     private String leftPlainText;
     private String rightPlainText;
+    private String newkey;
+    private String newplainText;
 	public HandlingInput( String key, String plainText) {
 		super();
 		this.hexaBits = new HashMap();
@@ -37,12 +39,18 @@ public class HandlingInput {
 		 hexaBits.put('F', "1111");
 		 
 	}   
-	
+	public String getnewKey() {
+		return this.newkey;
+	}
+	public String getnewplaintext() {
+		return this.newplainText;
+	}
 	public void handleKey() {
 		 String newKey=""; 
 		 for(int i=0;i<key.length();++i) {
 			 newKey+=hexaBits.get(key.charAt(i));
 		 }
+		 this.newkey=newKey;
 		 this.leftKey="";
 		 for(int i=0;i<32;++i) {
 			 leftKey+=newKey.charAt(i);
@@ -61,16 +69,18 @@ public class HandlingInput {
 		 for(int i=0;i<plainText.length();++i) {
 			 newPLainText+=hexaBits.get(plainText.charAt(i));
 		 }
+		 this.newplainText=newPLainText;
 		 this.leftPlainText="";
 		 int tbits=this.plainText.length()*4;
 		 for(int i=0;i<tbits/2;++i) {
 			 leftPlainText+=newPLainText.charAt(i);
-		 }System.out.println(leftPlainText);
+		 }
+		 //System.out.println(leftPlainText);
 		 this.rightPlainText="";
 		 for(int i=tbits/2;i<tbits;++i) {
 			 rightPlainText+=newPLainText.charAt(i);
 		 }
-		 System.out.println(rightPlainText);
+		// System.out.println(rightPlainText);
 		
 	}
 
